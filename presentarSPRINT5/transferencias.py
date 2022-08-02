@@ -1,5 +1,5 @@
 from tipos import Classic, Black, Gold
-
+import webbrowser
 
 def menu():
 
@@ -41,15 +41,14 @@ def black():
     
         if transferencias['estado'] == "ACEPTADA":
             
-            # print("\n")
-            # print("Estado: ", transferencias['estado'])
-            # print("Tipo: ", transferencias['tipo'])
-            # print("Monto: ", transferencias['monto'])
-            # print("Fecha: ", transferencias['fecha'])
-            # print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
-            # print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            # print("\n")
-            
+            print("\n")
+            print("Estado: ", transferencias['estado'])
+            print("Tipo: ", transferencias['tipo'])
+            print("Monto: ", transferencias['monto'])
+            print("Fecha: ", transferencias['fecha'])
+            print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
+            print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
+            print("\n")
             valor_html = "<p>"
             valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
             f.write(valor_html)
@@ -61,7 +60,7 @@ def black():
             valor_html = "</p>"
             f.write(valor_html)
             valor_html = "<p>"
-            valor_html = valor_html + "Monto: " + f"transferencias['monto']" + "</br>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
             f.write(valor_html)
             valor_html = "</p>"
             f.write(valor_html)
@@ -71,6 +70,15 @@ def black():
             valor_html = "</p>"
             f.write(valor_html)
             valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
             
 
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "RETIRO_EFECTIVO_CAJERO_AUTOMATICO" and transferencias['monto'] > transferencias['cupoDiarioRestante'] :
@@ -84,6 +92,36 @@ def black():
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
             print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
     
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "ALTA_CHEQUERA" and transferencias['totalChequerasActualmente'] <= clienteB.chequera:
             
@@ -95,6 +133,36 @@ def black():
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
             print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
         
         
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "ALTA_TARJETA_CREDITO" and transferencias["totalTarjetasDeCreditoActualmente"] <= clienteB.tarjetaC:    
@@ -107,6 +175,36 @@ def black():
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
             print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
         
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "TRANSFERENCIA_ENVIADA" and transferencias["monto"] > transferencias["saldoEnCuenta"]:    
             
@@ -117,7 +215,37 @@ def black():
             print("Fecha: ", transferencias['fecha'])
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            print("\n")   
+            print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)   
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "COMPRA_DOLAR" and transferencias["monto"] > transferencias["saldoEnCuenta"]:    
             
             print("Estado: ", transferencias['estado'])
@@ -127,16 +255,60 @@ def black():
             print("Fecha: ", transferencias['fecha'])
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            print("\n")  
+            print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)  
     html_pie_template="""
     </body>
     </html>
     """
     f.write(html_pie_template)
     f.close()
+    webbrowser.open('cheques.html')
 
 def classic():
-    
+    f = open('cheques.html', 'w')
+    html_template = """<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT_BANK</title>
+<link rel="icon" type="image/x-icon" href="imags/N-ITBANK.jpg">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="css/prueba.css">
+</head>
+<body>
+"""
+    f.write(html_template)
 
     
     import json
@@ -158,6 +330,36 @@ def classic():
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
             print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html) 
         
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "ALTA_CHEQUERA" and clienteC.tarjetaC == False:
             
@@ -168,7 +370,37 @@ def classic():
             print("Fecha: ", transferencias['fecha'])
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            print("\n")    
+            print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html) 
         
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "ALTA_TARJETA_CREDITO" and clienteC.tarjetaC == False: 
             print("Estado: ", transferencias['estado'])
@@ -178,7 +410,37 @@ def classic():
             print("Fecha: ", transferencias['fecha'])
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            print("\n")    
+            print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html) 
             
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "RETIRO_EFECTIVO_CAJERO_AUTOMATICO" and transferencias['monto'] > clienteC.retiroMax:     
             print("Estado: ", transferencias['estado'])
@@ -189,6 +451,36 @@ def classic():
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
             print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html) 
         
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "RETIRO_EFECTIVO_CAJERO_AUTOMATICO" and transferencias['monto'] > transferencias['cupoDiarioRestante']: 
             
@@ -200,6 +492,36 @@ def classic():
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
             print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html) 
         
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "COMPRA_DOLAR" and clienteC.dolar == False: 
             print("Estado: ", transferencias['estado'])
@@ -210,6 +532,36 @@ def classic():
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
             print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html) 
 
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "TRANSFERENCIA_RECIBIDA" and transferencias['monto'] > clienteC.transMax: 
             print("Estado: ", transferencias['estado'])
@@ -220,10 +572,60 @@ def classic():
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
             print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html) 
+    html_pie_template="""
+    </body>
+    </html>
+    """
+    f.write(html_pie_template)
+    f.close()
+    webbrowser.open('cheques.html')
 
 def gold(): 
+    f = open('cheques.html', 'w')
+    html_template = """<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT_BANK</title>
+<link rel="icon" type="image/x-icon" href="imags/N-ITBANK.jpg">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="css/prueba.css">
+</head>
+<body>
+"""
+    f.write(html_template)
     import json
-
     datos = open("presentarSprint5/gold.json", "r")
     cuentaGold = json.load(datos)
 
@@ -241,6 +643,36 @@ def gold():
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
             print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html) 
 
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "RETIRO_EFECTIVO_CAJERO_AUTOMATICO" and transferencias['monto'] > transferencias['cupoDiarioRestante']: 
             
@@ -251,7 +683,37 @@ def gold():
             print("Fecha: ", transferencias['fecha'])
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            print("\n")     
+            print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)      
             
             
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "ALTA_TARJETA_CREDITO" and transferencias['totalTarjetasDeCreditoActualmente'] >= clienteG.tarjetaC:
@@ -263,7 +725,37 @@ def gold():
             print("Fecha: ", transferencias['fecha'])
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            print("\n")      
+            print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)       
 
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "ALTA_CHEQUERA" and transferencias["totalChequerasActualmente"] >= clienteG.chequera:
             
@@ -274,7 +766,37 @@ def gold():
             print("Fecha: ", transferencias['fecha'])
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            print("\n")      
+            print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)       
         
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "COMPRA_DOLAR" and transferencias["monto"] > transferencias['saldoEnCuenta']:       
             print("Estado: ", transferencias['estado'])
@@ -284,7 +806,37 @@ def gold():
             print("Fecha: ", transferencias['fecha'])
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            print("\n")  
+            print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)   
 
         elif transferencias['estado'] == "RECHAZADA" and transferencias['tipo'] == "TRANSFERENCIA_RECIBIDA" and transferencias["monto"] > clienteG.transMax:       
             print("Estado: ", transferencias['estado'])
@@ -294,32 +846,45 @@ def gold():
             print("Fecha: ", transferencias['fecha'])
             print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
             print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            print("\n") 
+            print("\n")
+            valor_html = "<p>"
+            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Saldo en Cuenta: " + transferencias['saldoEnCuenta'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)
+            valor_html = "<p>"
+            valor_html = valor_html + "Cupo Diario Restante: " + transferencias['cupoDiarioRestante'] + "</br>"
+            f.write(valor_html)
+            valor_html = "</p>"
+            f.write(valor_html)  
+    html_pie_template="""
+    </body>
+    </html>
+    """
+    f.write(html_pie_template)
+    f.close()
+    webbrowser.open('cheques.html')
 
 
 
 menu()
-
-# f = open('cheques.html', 'w')
-
-# html_template = """<html>
-# <head>
-# <meta charset="UTF-8">
-# <meta http-equiv="X-UA-Compatible" content="IE=edge">
-# <meta name="viewport" content="width=device-width, initial-scale=1.0">
-# <title>IT_BANK</title>
-# <link rel="icon" type="image/x-icon" href="imags/N-ITBANK.jpg">
-# <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-# <link rel="stylesheet" href="css/prueba.css">
-# </head>
-# <body>
-# <main>
-
-# </main>
-# </body>
-# </html>
-# """
-
-# f.write(html_template)
-# f.write(valor_html)
-# f.close()
