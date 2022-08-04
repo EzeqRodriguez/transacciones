@@ -61,6 +61,7 @@ def menuR():
 
 def blackA():
     f = open('cheques.html', 'w')
+
     html_template = """<html>
 <head>
 <meta charset="UTF-8">
@@ -72,6 +73,69 @@ def blackA():
 <link rel="stylesheet" href="css/prueba.css">
 </head>
 <body>
+<header>
+        <img class="logo" src="imagenes/itbanksinfondo.png">
+        <img class="barra" src="imagenes/multicolor.png">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <p>MENU</p>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="IniSes.html">Iniciar Sesion</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="comprardolar.html">Comprar Dolares</a>
+                        </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="calcularAmigos.html">Calcular Gastos</a>
+                            </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Consultas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="cuentas.html">Cuentas</a></li>
+                      <li><a class="dropdown-item" href="tarjetas.html">Tarjetas</a></li>
+                      <li><a class="dropdown-item" href="prestamos.html">Préstamos</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Transacciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="transferencias.html">Transferencias</a></li>
+                      <li><a class="dropdown-item" href="pagoserv.html">Pago de servicios e impuestos</a></li>
+                      <li><a class="dropdown-item" href="pagotarj.html">Pago de Tarjeta</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+</header>
+<main>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Estado</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
 """
     f.write(html_template)
     import json
@@ -85,40 +149,31 @@ def blackA():
     
         if transferencias['estado'] == "ACEPTADA":
             
-            # print("\n")
-            # print("Estado: ", transferencias['estado'])
-            # print("Tipo: ", transferencias['tipo'])
-            # print("Monto: ", transferencias['monto'])
-            # print("Fecha: ", transferencias['fecha'])
-            # print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
-            # print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            # print("\n")
-            
-            valor_html = "<p>"
-            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            valor_html = "<tr>"
+            valor_html = valor_html +"<td>"+ transferencias['estado'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['tipo'] +"</td>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            valor_html = "<td>"+ transferencias['monto'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['fecha'] +"</td>"+"</tr>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
+    html_pie_template="""
+  </tbody>
+</table>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+"""
+    f.write(html_pie_template)
+    f.close()
 
 def black():
 
     f = open('cheques.html', 'w')
+
     html_template = """<html>
 <head>
 <meta charset="UTF-8">
@@ -130,6 +185,69 @@ def black():
 <link rel="stylesheet" href="css/prueba.css">
 </head>
 <body>
+<header>
+        <img class="logo" src="imagenes/itbanksinfondo.png">
+        <img class="barra" src="imagenes/multicolor.png">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <p>MENU</p>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="IniSes.html">Iniciar Sesion</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="comprardolar.html">Comprar Dolares</a>
+                        </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="calcularAmigos.html">Calcular Gastos</a>
+                            </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Consultas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="cuentas.html">Cuentas</a></li>
+                      <li><a class="dropdown-item" href="tarjetas.html">Tarjetas</a></li>
+                      <li><a class="dropdown-item" href="prestamos.html">Préstamos</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Transacciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="transferencias.html">Transferencias</a></li>
+                      <li><a class="dropdown-item" href="pagoserv.html">Pago de servicios e impuestos</a></li>
+                      <li><a class="dropdown-item" href="pagotarj.html">Pago de Tarjeta</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+</header>
+<main>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Estado</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
 """
     f.write(html_template)
     import json
@@ -143,46 +261,31 @@ def black():
     
         if transferencias['estado'] == "ACEPTADA" or transferencias['estado'] == "RECHAZADA":
             
-            # print("\n")
-            # print("Estado: ", transferencias['estado'])
-            # print("Tipo: ", transferencias['tipo'])
-            # print("Monto: ", transferencias['monto'])
-            # print("Fecha: ", transferencias['fecha'])
-            # print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
-            # print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            # print("\n")
-            
-            valor_html = "<p>"
-            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            valor_html = "<tr>"
+            valor_html = valor_html +"<td>"+ transferencias['estado'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['tipo'] +"</td>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            valor_html = "<td>"+ transferencias['monto'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['fecha'] +"</td>"+"</tr>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
  
     html_pie_template="""
-    </body>
-    </html>
-    """
+  </tbody>
+</table>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+"""
     f.write(html_pie_template)
     f.close()
 
 def blackR():
     f = open('cheques.html', 'w')
+
     html_template = """<html>
 <head>
 <meta charset="UTF-8">
@@ -194,6 +297,69 @@ def blackR():
 <link rel="stylesheet" href="css/prueba.css">
 </head>
 <body>
+<header>
+        <img class="logo" src="imagenes/itbanksinfondo.png">
+        <img class="barra" src="imagenes/multicolor.png">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <p>MENU</p>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="IniSes.html">Iniciar Sesion</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="comprardolar.html">Comprar Dolares</a>
+                        </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="calcularAmigos.html">Calcular Gastos</a>
+                            </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Consultas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="cuentas.html">Cuentas</a></li>
+                      <li><a class="dropdown-item" href="tarjetas.html">Tarjetas</a></li>
+                      <li><a class="dropdown-item" href="prestamos.html">Préstamos</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Transacciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="transferencias.html">Transferencias</a></li>
+                      <li><a class="dropdown-item" href="pagoserv.html">Pago de servicios e impuestos</a></li>
+                      <li><a class="dropdown-item" href="pagotarj.html">Pago de Tarjeta</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+</header>
+<main>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Estado</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
 """
     f.write(html_template)
     import json
@@ -207,41 +373,25 @@ def blackR():
     
         if transferencias['estado'] == "RECHAZADA":
             
-            # print("\n")
-            # print("Estado: ", transferencias['estado'])
-            # print("Tipo: ", transferencias['tipo'])
-            # print("Monto: ", transferencias['monto'])
-            # print("Fecha: ", transferencias['fecha'])
-            # print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
-            # print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            # print("\n")
-            
-            valor_html = "<p>"
-            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            valor_html = "<tr>"
+            valor_html = valor_html +"<td>"+ transferencias['estado'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['tipo'] +"</td>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            valor_html = "<td>"+ transferencias['monto'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['fecha'] +"</td>"+"</tr>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
  
     html_pie_template="""
-    </body>
-    </html>
-    """
+  </tbody>
+</table>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+"""
     f.write(html_pie_template)
     f.close()
 
@@ -249,6 +399,7 @@ def blackR():
 
 def classicA():
     f = open('cheques.html', 'w')
+
     html_template = """<html>
 <head>
 <meta charset="UTF-8">
@@ -260,6 +411,69 @@ def classicA():
 <link rel="stylesheet" href="css/prueba.css">
 </head>
 <body>
+<header>
+        <img class="logo" src="imagenes/itbanksinfondo.png">
+        <img class="barra" src="imagenes/multicolor.png">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <p>MENU</p>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="IniSes.html">Iniciar Sesion</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="comprardolar.html">Comprar Dolares</a>
+                        </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="calcularAmigos.html">Calcular Gastos</a>
+                            </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Consultas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="cuentas.html">Cuentas</a></li>
+                      <li><a class="dropdown-item" href="tarjetas.html">Tarjetas</a></li>
+                      <li><a class="dropdown-item" href="prestamos.html">Préstamos</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Transacciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="transferencias.html">Transferencias</a></li>
+                      <li><a class="dropdown-item" href="pagoserv.html">Pago de servicios e impuestos</a></li>
+                      <li><a class="dropdown-item" href="pagotarj.html">Pago de Tarjeta</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+</header>
+<main>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Estado</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
 """
     f.write(html_template)
     import json
@@ -272,40 +486,31 @@ def classicA():
         clienteB = Black(cuentaClassic['nombre'], cuentaClassic['apellido'], cuentaClassic['dni'])
     
         if transferencias['estado'] == "ACEPTADA":
-            
-            # print("\n")
-            # print("Estado: ", transferencias['estado'])
-            # print("Tipo: ", transferencias['tipo'])
-            # print("Monto: ", transferencias['monto'])
-            # print("Fecha: ", transferencias['fecha'])
-            # print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
-            # print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            # print("\n")
-            
-            valor_html = "<p>"
-            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+
+            valor_html = "<tr>"
+            valor_html = valor_html +"<td>"+ transferencias['estado'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['tipo'] +"</td>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            valor_html = "<td>"+ transferencias['monto'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['fecha'] +"</td>"+"</tr>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
+    html_pie_template="""
+  </tbody>
+</table>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+"""
+    f.write(html_pie_template)
+    f.close()
 
 def classicR():
     f = open('cheques.html', 'w')
+
     html_template = """<html>
 <head>
 <meta charset="UTF-8">
@@ -317,6 +522,69 @@ def classicR():
 <link rel="stylesheet" href="css/prueba.css">
 </head>
 <body>
+<header>
+        <img class="logo" src="imagenes/itbanksinfondo.png">
+        <img class="barra" src="imagenes/multicolor.png">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <p>MENU</p>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="IniSes.html">Iniciar Sesion</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="comprardolar.html">Comprar Dolares</a>
+                        </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="calcularAmigos.html">Calcular Gastos</a>
+                            </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Consultas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="cuentas.html">Cuentas</a></li>
+                      <li><a class="dropdown-item" href="tarjetas.html">Tarjetas</a></li>
+                      <li><a class="dropdown-item" href="prestamos.html">Préstamos</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Transacciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="transferencias.html">Transferencias</a></li>
+                      <li><a class="dropdown-item" href="pagoserv.html">Pago de servicios e impuestos</a></li>
+                      <li><a class="dropdown-item" href="pagotarj.html">Pago de Tarjeta</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+</header>
+<main>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Estado</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
 """
     f.write(html_template)
     import json
@@ -329,41 +597,32 @@ def classicR():
         clienteB = Black(cuentaClassic['nombre'], cuentaClassic['apellido'], cuentaClassic['dni'])
     
         if transferencias['estado'] == "RECHAZADA":
-            
-            # print("\n")
-            # print("Estado: ", transferencias['estado'])
-            # print("Tipo: ", transferencias['tipo'])
-            # print("Monto: ", transferencias['monto'])
-            # print("Fecha: ", transferencias['fecha'])
-            # print("Saldo en cuenta: ", transferencias['saldoEnCuenta'])
-            # print("Cupo diario restante: ", transferencias['cupoDiarioRestante'])
-            # print("\n")
-            
-            valor_html = "<p>"
-            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+
+            valor_html = "<tr>"
+            valor_html = valor_html +"<td>"+ transferencias['estado'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['tipo'] +"</td>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            valor_html = "<td>"+ transferencias['monto'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['fecha'] +"</td>"+"</tr>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
+    html_pie_template="""
+  </tbody>
+</table>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+"""
+    f.write(html_pie_template)
+    f.close()
 
 def classic():
 
     f = open('cheques.html', 'w')
+
     html_template = """<html>
 <head>
 <meta charset="UTF-8">
@@ -375,6 +634,69 @@ def classic():
 <link rel="stylesheet" href="css/prueba.css">
 </head>
 <body>
+<header>
+        <img class="logo" src="imagenes/itbanksinfondo.png">
+        <img class="barra" src="imagenes/multicolor.png">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <p>MENU</p>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="IniSes.html">Iniciar Sesion</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="comprardolar.html">Comprar Dolares</a>
+                        </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="calcularAmigos.html">Calcular Gastos</a>
+                            </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Consultas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="cuentas.html">Cuentas</a></li>
+                      <li><a class="dropdown-item" href="tarjetas.html">Tarjetas</a></li>
+                      <li><a class="dropdown-item" href="prestamos.html">Préstamos</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Transacciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="transferencias.html">Transferencias</a></li>
+                      <li><a class="dropdown-item" href="pagoserv.html">Pago de servicios e impuestos</a></li>
+                      <li><a class="dropdown-item" href="pagotarj.html">Pago de Tarjeta</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+</header>
+<main>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Estado</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
 """
     f.write(html_template)
     import json
@@ -388,43 +710,35 @@ def classic():
     
         if transferencias['estado'] == "ACEPTADA" or transferencias['estado'] == "RECHAZADA":
             
-            
-            
-            valor_html = "<p>"
-            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            valor_html = "<tr>"
+            valor_html = valor_html +"<td>"+ transferencias['estado'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['tipo'] +"</td>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            valor_html = "<td>"+ transferencias['monto'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['fecha'] +"</td>"+"</tr>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
 
 
     html_pie_template="""
-    </body>
-    </html>
-    """
+  </tbody>
+</table>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+"""
     f.write(html_pie_template)
     f.close()
 
-####################################################################################
+###################################################################################
 
 def gold():
 
     f = open('cheques.html', 'w')
+
     html_template = """<html>
 <head>
 <meta charset="UTF-8">
@@ -436,6 +750,69 @@ def gold():
 <link rel="stylesheet" href="css/prueba.css">
 </head>
 <body>
+<header>
+        <img class="logo" src="imagenes/itbanksinfondo.png">
+        <img class="barra" src="imagenes/multicolor.png">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <p>MENU</p>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="IniSes.html">Iniciar Sesion</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="comprardolar.html">Comprar Dolares</a>
+                        </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="calcularAmigos.html">Calcular Gastos</a>
+                            </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Consultas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="cuentas.html">Cuentas</a></li>
+                      <li><a class="dropdown-item" href="tarjetas.html">Tarjetas</a></li>
+                      <li><a class="dropdown-item" href="prestamos.html">Préstamos</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Transacciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="transferencias.html">Transferencias</a></li>
+                      <li><a class="dropdown-item" href="pagoserv.html">Pago de servicios e impuestos</a></li>
+                      <li><a class="dropdown-item" href="pagotarj.html">Pago de Tarjeta</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+</header>
+<main>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Estado</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
 """
     f.write(html_template)
     import json
@@ -449,42 +826,33 @@ def gold():
     
         if transferencias['estado'] == "ACEPTADA" or transferencias['estado'] == "RECHAZADA":
             
-            
-            
-            valor_html = "<p>"
-            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            valor_html = "<tr>"
+            valor_html = valor_html +"<td>"+ transferencias['estado'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['tipo'] +"</td>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            valor_html = "<td>"+ transferencias['monto'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['fecha'] +"</td>"+"</tr>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
 
 
     html_pie_template="""
-    </body>
-    </html>
-    """
+  </tbody>
+</table>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+"""
     f.write(html_pie_template)
     f.close()
-
 
 def goldA():
 
     f = open('cheques.html', 'w')
+
     html_template = """<html>
 <head>
 <meta charset="UTF-8">
@@ -496,6 +864,69 @@ def goldA():
 <link rel="stylesheet" href="css/prueba.css">
 </head>
 <body>
+<header>
+        <img class="logo" src="imagenes/itbanksinfondo.png">
+        <img class="barra" src="imagenes/multicolor.png">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <p>MENU</p>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="IniSes.html">Iniciar Sesion</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="comprardolar.html">Comprar Dolares</a>
+                        </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="calcularAmigos.html">Calcular Gastos</a>
+                            </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Consultas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="cuentas.html">Cuentas</a></li>
+                      <li><a class="dropdown-item" href="tarjetas.html">Tarjetas</a></li>
+                      <li><a class="dropdown-item" href="prestamos.html">Préstamos</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Transacciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="transferencias.html">Transferencias</a></li>
+                      <li><a class="dropdown-item" href="pagoserv.html">Pago de servicios e impuestos</a></li>
+                      <li><a class="dropdown-item" href="pagotarj.html">Pago de Tarjeta</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+</header>
+<main>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Estado</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
 """
     f.write(html_template)
     import json
@@ -509,41 +940,32 @@ def goldA():
     
         if transferencias['estado'] == "ACEPTADA" :
             
-            
-            
-            valor_html = "<p>"
-            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            valor_html = "<tr>"
+            valor_html = valor_html +"<td>"+ transferencias['estado'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['tipo'] +"</td>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            valor_html = "<td>"+ transferencias['monto'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['fecha'] +"</td>"+"</tr>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
 
 
     html_pie_template="""
-    </body>
-    </html>
-    """
+  </tbody>
+</table>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+"""
     f.write(html_pie_template)
     f.close()
 
-
 def goldR():
     f = open('cheques.html', 'w')
+
     html_template = """<html>
 <head>
 <meta charset="UTF-8">
@@ -555,6 +977,69 @@ def goldR():
 <link rel="stylesheet" href="css/prueba.css">
 </head>
 <body>
+<header>
+        <img class="logo" src="imagenes/itbanksinfondo.png">
+        <img class="barra" src="imagenes/multicolor.png">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <p>MENU</p>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="IniSes.html">Iniciar Sesion</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" href="comprardolar.html">Comprar Dolares</a>
+                        </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="calcularAmigos.html">Calcular Gastos</a>
+                            </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Consultas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="cuentas.html">Cuentas</a></li>
+                      <li><a class="dropdown-item" href="tarjetas.html">Tarjetas</a></li>
+                      <li><a class="dropdown-item" href="prestamos.html">Préstamos</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Transacciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="transferencias.html">Transferencias</a></li>
+                      <li><a class="dropdown-item" href="pagoserv.html">Pago de servicios e impuestos</a></li>
+                      <li><a class="dropdown-item" href="pagotarj.html">Pago de Tarjeta</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+</header>
+<main>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Estado</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
 """
     f.write(html_template)
     import json
@@ -568,38 +1053,28 @@ def goldR():
     
         if transferencias['estado'] == "RECHAZADA" :
             
-            
-            
-            valor_html = "<p>"
-            valor_html = valor_html + "Estado: " + transferencias['estado'] + "</br>"
+            valor_html = "<tr>"
+            valor_html = valor_html +"<td>"+ transferencias['estado'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['tipo'] +"</td>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Tipo: " + transferencias['tipo'] + "</br>"
+            valor_html = "<td>"+ transferencias['monto'] +"</td>"
             f.write(valor_html)
-            valor_html = "</p>"
+            valor_html = "<td>"+ transferencias['fecha'] +"</td>"+"</tr>"
             f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Monto: " + transferencias['monto'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
-            valor_html = valor_html + "Fecha: " + transferencias['fecha'] + "</br>"
-            f.write(valor_html)
-            valor_html = "</p>"
-            f.write(valor_html)
-            valor_html = "<p>"
 
 
     html_pie_template="""
-    </body>
-    </html>
-    """
+  </tbody>
+</table>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+"""
     f.write(html_pie_template)
     f.close()
-
 
 
 
