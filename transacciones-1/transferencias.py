@@ -252,7 +252,7 @@ def black():
     f.write(html_template)
     import json
 
-    datos = open("presentarSprint5/black.json", "r")
+    datos = open("transacciones/transacciones-1/black.json", "r")
     cuentaBlack = json.load(datos)
 
     for transferencias in cuentaBlack['transacciones']:
